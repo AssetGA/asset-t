@@ -10,14 +10,13 @@ const ScrollZoomImage = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      console.log("currentScrolly", currentScrollY);
       // Если скроллим вверх — увеличиваем ширину (до 150%)
       if (currentScrollY < lastScrollY.current && currentScrollY < 100) {
-        setWidth((prev) => Math.min(prev - 0.1, 800));
+        setWidth((prev) => Math.min(prev - 0.2, 800));
       }
       // Скроллим вниз — уменьшаем ширину (до 100%)
       if (currentScrollY > lastScrollY.current && currentScrollY > 400) {
-        setWidth((prev) => Math.max(prev + 0.1, 2200));
+        setWidth((prev) => Math.max(prev + 0.2, 2200));
       }
 
       lastScrollY.current = currentScrollY;
@@ -30,7 +29,7 @@ const ScrollZoomImage = () => {
   console.log("width", width, lastScrollY, stop);
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-full flex justify-center items-center z-60">
       <div
         className="transition-all duration-800 ease-in-out overflow-hidden h-[900px] relative"
         style={{ width: `${width}px` }}

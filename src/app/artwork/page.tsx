@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ScrollZoomImage from "../components/ScrollZoomImage";
 import Image from "next/image";
 import StackedScrollImages from "../components/StackedScrollImages";
@@ -8,20 +8,12 @@ import AnimatedHeading from "../components/AnimatedHeading";
 
 const page = () => {
   const [width, setWidth] = useState(600); // проценты
-  const lastScrollY = useRef(200);
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       // Если скроллим вверх — увеличиваем ширину (до 150%)
-      if (currentScrollY < lastScrollY.current && currentScrollY < 100) {
-        setWidth((prev) => Math.min(prev - 0.1, 1400));
-      }
-      // Скроллим вниз — уменьшаем ширину (до 100%)
-      else {
-        setWidth((prev) => Math.max(prev + 0.1, 1500));
-      }
 
-      lastScrollY.current = currentScrollY;
+      setWidth(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -97,9 +89,7 @@ const page = () => {
         <div className="flex flex-col md:flex-row relative">
           <div
             className={`flex items-center md:w-[50%] ${
-              window.scrollY >= 1500 && window.scrollY <= 4700
-                ? "fixed"
-                : "absolute"
+              width >= 1500 && width <= 5000 ? "fixed" : "absolute"
             } top-0 z-50`}
           >
             <div className="flex flex-col h-screen md:justify-center">
