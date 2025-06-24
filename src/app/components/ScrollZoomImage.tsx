@@ -26,8 +26,6 @@ const ScrollZoomImage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log("width", width, lastScrollY, stop);
-
   return (
     <div className="w-full flex justify-center items-center z-60">
       <div

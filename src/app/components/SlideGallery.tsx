@@ -11,7 +11,7 @@ export default function SlideGallery() {
   return (
     <div className="flex gap-8 flex-wrap justify-center">
       {images.map((src, i) => (
-        <SlideUpImage key={i} images={images} delay={i * 1.8} />
+        <SlideUpImage key={i} delay={i * 1.8} />
       ))}
     </div>
   );

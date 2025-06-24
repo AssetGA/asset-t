@@ -8,8 +8,6 @@ import SlideFromUp from "./ui/SlideFromUp";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-type Props = {};
-
 const pages = [
   { name: "О нас", linkName: "about" },
   { name: "Проекты", linkName: "projects" },
@@ -17,7 +15,7 @@ const pages = [
   { name: "Контакты", linkName: "contact" },
 ];
 
-const NavBar = (props: Props) => {
+const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [vision, setVision] = useState(true);
   const router = useRouter();

@@ -2,8 +2,6 @@ import { ArrowRight } from "@deemlol/next-icons";
 import Link from "next/link";
 import React from "react";
 
-type Props = {};
-
 export default function CreateSite() {
   return (
     <section className="flex flex-col my-20 px-2 lg:px-10">

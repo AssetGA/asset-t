@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import SlideFromUp from "./SlideFromUp";
 import ColorOnScrollText from "./ColorOnScrollText";
-import MouseTracker from "./MouseTracker";
 
 type Props = {
   text: string;

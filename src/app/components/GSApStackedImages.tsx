@@ -21,17 +21,19 @@ export default function GSApStackedImages() {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray(".image-section");
 
-      sections.forEach((section: any, i) => {
+      sections.forEach((section) => {
+        const el = section as HTMLElement;
+
         gsap.fromTo(
-          section,
+          el,
           { y: 300, autoAlpha: 0 },
           {
             y: 0,
             autoAlpha: 1,
             scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top+=800 center",
-              end: "top+=1500 center",
+              trigger: el,
+              start: "top center",
+              end: "bottom center",
               scrub: true,
             },
           }

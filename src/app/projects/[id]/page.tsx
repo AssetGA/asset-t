@@ -2,35 +2,38 @@ import NewCanvasBlock from "@/app/components/ui/NewCanvasBlocks";
 import { ArrowRight } from "@deemlol/next-icons";
 import Image from "next/image";
 import React from "react";
-import api from "../../api.json";
+import { getCompanyById } from "@/lib/api";
+import { notFound } from "next/navigation";
 
-type aboutProps = {
-  name: string;
-  about: string;
-  year: string;
-  services: string;
-  status: string;
-};
+// type aboutProps = {
+//   name: string;
+//   about: string;
+//   year: string;
+//   services: string;
+//   status: string;
+// };
 
-const page = async ({ params }: any) => {
-  const { company } = api; // ← просто деструктурируй объект напрямую
-  const id = await params;
-  const num = Number(id.id);
+const page = async ({ params }: { params: { id: string } }) => {
+  const num = Number(params.id);
+  const company = getCompanyById(num);
+
+  if (!company) return notFound();
+
   return (
     <div className="flex flex-col">
       <section className="w-full flex flex-row my-28">
         <div className="w-1/2">
-          <h1 className="text-7xl mb-20">{company[num].name}</h1>
+          <h1 className="text-7xl mb-20">{company.name}</h1>
           <button className="flex p-4 bg-black/80 text-white hover:bg-black/70 rounded-md cursor-pointer">
             все проекты
           </button>
         </div>
         <div className="w-1/2">
-          <p className="text-xl">{company[num].about}</p>
+          <p className="text-xl">{company.about}</p>
         </div>
       </section>
       <div className="py-20">
-        <NewCanvasBlock name={company[num].name} />
+        <NewCanvasBlock name={company.name} />
       </div>
       <section className="w-full flex flex-row my-28">
         <div className="w-1/2">
@@ -40,26 +43,26 @@ const page = async ({ params }: any) => {
           <ul className="text-2xl">
             <li className="flex justify-between border-b-2 py-6">
               <p>Год</p>
-              <span>{company[num].year}</span>
+              <span>{company.year}</span>
             </li>
             <li className="flex justify-between border-b-2 py-6">
               <p>Клиент</p>
-              <span>{company[num].name}</span>
+              <span>{company.name}</span>
             </li>
             <li className="flex justify-between border-b-2 py-6">
               <p>Услуги</p>
-              <span>{company[num].services}</span>
+              <span>{company.services}</span>
             </li>
             <li className="flex justify-between border-b-2 py-6">
               <p>Сайт</p>
-              <span>{company[num].status}</span>
+              <span>{company.status}</span>
             </li>
           </ul>
         </div>
       </section>
       <section className="w-full h-[900px] relative">
         <Image
-          src={company[num].images[0].src}
+          src={company.images[0].src}
           alt=""
           fill
           sizes="1000px"
@@ -69,7 +72,7 @@ const page = async ({ params }: any) => {
       <section className="w-full flex flex-row py-6 space-x-4">
         <div className="w-1/2 h-[1000px] relative">
           <Image
-            src={company[num].images[1].src}
+            src={company.images[1].src}
             alt=""
             fill
             sizes="1000px"
@@ -81,7 +84,7 @@ const page = async ({ params }: any) => {
             <div className="w-full h-full grid grid-rows-2 gap-10">
               <div className="w-full h-full relative hover:shadow-2xl">
                 <Image
-                  src={company[num].images[2].src}
+                  src={company.images[2].src}
                   alt=""
                   fill
                   sizes="500px"
@@ -90,7 +93,7 @@ const page = async ({ params }: any) => {
               </div>
               <div className="w-full h-full relative hover:shadow-2xl">
                 <Image
-                  src={company[num].images[3].src}
+                  src={company.images[3].src}
                   alt=""
                   fill
                   sizes="500px"
@@ -103,7 +106,7 @@ const page = async ({ params }: any) => {
             <div className="w-full h-full grid grid-rows-3 gap-10">
               <div className="w-full h-full relative hover:shadow-2xl">
                 <Image
-                  src={company[num].images[4].src}
+                  src={company.images[4].src}
                   alt=""
                   fill
                   sizes="500px"
@@ -112,7 +115,7 @@ const page = async ({ params }: any) => {
               </div>
               <div className="w-full h-full relative hover:shadow-2xl">
                 <Image
-                  src={company[num].images[5].src}
+                  src={company.images[5].src}
                   alt=""
                   fill
                   sizes="500px"
@@ -121,7 +124,7 @@ const page = async ({ params }: any) => {
               </div>
               <div className="w-full h-full relative hover:shadow-2xl">
                 <Image
-                  src={company[num].images[6].src}
+                  src={company.images[6].src}
                   alt=""
                   fill
                   sizes="500px"

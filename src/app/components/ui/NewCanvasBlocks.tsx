@@ -5,7 +5,6 @@ import React, { useEffect, useRef } from "react";
 const NewCanvasBlocks = (text: { name: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const word = text.name + " ";
-  console.log("word", word);
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;

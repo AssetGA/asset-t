@@ -25,7 +25,9 @@ const ConnectionForm = () => {
     time: "",
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
@@ -40,7 +42,7 @@ const ConnectionForm = () => {
     }));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await fetch("/lib/api/contact", {
@@ -68,8 +70,12 @@ const ConnectionForm = () => {
 
       console.log("responce", res.ok);
       return res.ok;
-    } catch (error: any) {
-      console.log("error", error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("error", error.message);
+      } else {
+        console.error("Unexpected error", error);
+      }
     }
   };
   return (

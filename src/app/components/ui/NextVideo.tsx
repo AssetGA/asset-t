@@ -5,7 +5,6 @@ import type { ReactElement } from "react";
 interface NextVideoProps {
   src: string;
   poster?: string;
-  autoPlay?: boolean;
   loop?: boolean;
   muted?: boolean;
   className?: string;
@@ -14,7 +13,6 @@ interface NextVideoProps {
 export default function NextVideo({
   src,
   poster,
-  autoPlay = false,
   loop = false,
   muted = true,
   className = "",
@@ -24,7 +22,6 @@ export default function NextVideo({
       <video
         src={src}
         poster={poster}
-        autoPlay
         loop={loop}
         muted={muted}
         className="object-cover w-full h-full"

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const images = [
   "/img/img1.jpeg",
@@ -12,17 +12,25 @@ const images = [
 
 export default function StackedScrollImages() {
   const [number, setNumber] = useState(0);
-  const num = window.scrollY;
+  const lastScrollY = useRef(200);
 
   useEffect(() => {
-    if (num > 1000 && num < 2500) {
-      setNumber(0);
-    } else if (num > 2600 && num < 3700) {
-      setNumber(1);
-    } else if (num > 3700 && num < 4600) {
-      setNumber(2);
-    }
-  }, [num]);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (window.scrollY > 1000 && window.scrollY < 2700) {
+        setNumber(0);
+      } else if (window.scrollY > 2700 && window.scrollY < 3700) {
+        setNumber(1);
+      } else if (window.scrollY > 3700 && window.scrollY < 4700) {
+        setNumber(2);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  console.log("1111", number, lastScrollY);
 
   return (
     <div className="flex flex-col mt-[750px] md:mt-0 md:pt-0 w-full md:w-[50%] justify-end z-50">
