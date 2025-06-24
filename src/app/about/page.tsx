@@ -4,14 +4,10 @@ import NextVideo from "../components/ui/NextVideo";
 import { ArrowRight } from "@deemlol/next-icons";
 import MyServices from "../components/MyServices";
 import { works } from "../../utils/works";
-import AnimatedLines from "../components/ui/AnimatedLines";
 import ResponsiveText from "../components/ui/ResponsiveText";
-import ColorOnScrollText from "../components/ui/ColorOnScrollText";
 import Link from "next/link";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <div className="w-full">
       <h1 className="text-3xl xl:text-6xl py-10">

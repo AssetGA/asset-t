@@ -9,8 +9,6 @@ import BanerWindow from "../components/BanerWindow";
 import Link from "next/link";
 import CreateSite from "../components/CreateSite";
 
-type Props = {};
-
 const images = [
   "/img/gravitation/ga.png",
   "/img/fone2.png",
@@ -19,7 +17,7 @@ const images = [
   "/img/almale/history.webp",
 ];
 
-const page = (props: Props) => {
+const page = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (

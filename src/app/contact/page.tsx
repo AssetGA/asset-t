@@ -2,9 +2,7 @@ import ConnectionForm from "../components/ConnectionForm";
 import MyServices from "../components/MyServices";
 import { works } from "@/utils/works";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <div className="flex flex-col">
       <div className="flex flex-col lg:flex-row pt-20">

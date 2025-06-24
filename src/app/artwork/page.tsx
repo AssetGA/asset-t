@@ -3,14 +3,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import ScrollZoomImage from "../components/ScrollZoomImage";
 import Image from "next/image";
-import StackingImages from "../components/StackingImages";
 import StackedScrollImages from "../components/StackedScrollImages";
-import GSAPStackedImages from "../components/GSApStackedImages";
 import AnimatedHeading from "../components/AnimatedHeading";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   const [width, setWidth] = useState(600); // проценты
   const lastScrollY = useRef(200);
   console.log("111", width);

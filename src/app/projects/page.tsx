@@ -4,8 +4,6 @@ import BanerWindow from "../components/BanerWindow";
 import Link from "next/link";
 import CreateSite from "../components/CreateSite";
 
-type Props = {};
-
 const images = [
   "/img/fone1.png",
   "/img/fone2.png",
@@ -19,7 +17,7 @@ const images = [
   "/img/homes/kokshe.jpeg",
 ];
 
-const page = (props: Props) => {
+const page = () => {
   return (
     <div className="flex flex-col w-full z-100">
       <div className="mt-20 mb-40">
