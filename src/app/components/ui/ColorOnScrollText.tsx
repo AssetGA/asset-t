@@ -6,11 +6,13 @@ import MagnifyOnHover from "./MagnifyOnHover";
 
 type SlideInProps = {
   children: ReactNode;
+  coords: { x: number; y: number };
   mouseMove: boolean;
 };
 
 export default function ColorOnScrollText({
   children,
+  coords,
   mouseMove,
 }: SlideInProps) {
   const textRef = useRef<HTMLDivElement>(null);
@@ -40,6 +42,14 @@ export default function ColorOnScrollText({
     return () => observer.disconnect();
   }, []);
 
+  const style = {
+    background: mouseMove
+      ? `radial-gradient(circle at ${coords.x}px ${coords.y}px, #fff, transparent)`
+      : "none",
+    WebkitBackgroundClip: "text",
+    color: "transparent",
+  };
+
   return (
     <div
       ref={textRef}
@@ -47,7 +57,9 @@ export default function ColorOnScrollText({
         mouseMove ? "transition-colors duration-300 text-black" : ""
       }`}
     >
-      <MagnifyOnHover>{children}</MagnifyOnHover>
+      <MagnifyOnHover>
+        <span style={style}>{children}</span>
+      </MagnifyOnHover>
     </div>
   );
 }

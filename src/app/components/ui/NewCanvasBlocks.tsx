@@ -67,7 +67,7 @@ const NewCanvasBlocks = (text: { name: string }) => {
     };
 
     animate();
-  }, []);
+  }, [word]);
 
   return <canvas ref={canvasRef} className="w-full h-52 block" />;
 };

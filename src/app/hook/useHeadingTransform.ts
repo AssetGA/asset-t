@@ -1,11 +1,16 @@
+"use client";
+
 import { useTransform, MotionValue } from "framer-motion";
 
 export function useHeadingTransform(
   progress: MotionValue<number>,
   count: number
 ) {
-  const transforms = [];
+  // Объявляем массив сразу нужной длины
+  const transforms: { y: MotionValue<string>; opacity: MotionValue<number> }[] =
+    [];
 
+  // Вызываем useTransform на верхнем уровне, НЕЛЬЗЯ в map/callback
   for (let i = 0; i < count; i++) {
     const start = i / count;
     const end = (i + 1) / count;

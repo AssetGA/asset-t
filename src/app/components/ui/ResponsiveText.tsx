@@ -98,7 +98,7 @@ export default function ResponsiveText({ text }: Props) {
               onMouseLeave={() => setIsHovering(false)}
               className="relative w-full h-full"
             >
-              <ColorOnScrollText mouseMove={isHovering}>
+              <ColorOnScrollText mouseMove={isHovering} coords={coords}>
                 {line}
               </ColorOnScrollText>
             </div>
