@@ -26,7 +26,7 @@ export default function StackedScrollImages() {
 
   console.log("num", num, number);
   return (
-    <div className="flex flex-col w-[50%] justify-end">
+    <div className="flex flex-col mt-[750px] md:pt-0 w-full md:w-[50%] justify-end z-50">
       {images.map((src, index) => (
         <div
           key={index}

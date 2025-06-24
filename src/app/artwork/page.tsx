@@ -9,11 +9,9 @@ import AnimatedHeading from "../components/AnimatedHeading";
 const page = () => {
   const [width, setWidth] = useState(600); // проценты
   const lastScrollY = useRef(200);
-  console.log("111", width);
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      console.log("currentScrolly", currentScrollY);
       // Если скроллим вверх — увеличиваем ширину (до 150%)
       if (currentScrollY < lastScrollY.current && currentScrollY < 100) {
         setWidth((prev) => Math.min(prev - 0.1, 1400));
@@ -33,8 +31,8 @@ const page = () => {
   return (
     <div className="flex flex-col w-full z-100">
       <div className="mt-20 mb-40">
-        <div className="flex w-[60%]">
-          <div className="px-4 text-7xl">
+        <div className="flex md:w-[60%]">
+          <div className="px-4 text-3xl md:text-7xl">
             «Сражение выигрывает тот, кто твердо решает победить»
           </div>
         </div>
@@ -42,8 +40,8 @@ const page = () => {
       <div className="flex justify-end text-2xl">
         <p>Наполеон Бонапард</p>
       </div>
-      <div className="flex flex-row my-20">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="flex flex-col md:flex-row gap-4 my-20">
+        <div className="md:grid grid-cols-2 gap-4 hidden">
           <div className="row-span-2 flex items-center">
             <Image
               src="/img/img5.jpeg"
@@ -69,7 +67,7 @@ const page = () => {
           />
         </div>
         <ScrollZoomImage />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="md:grid grid-cols-2 gap-4 hidden ">
           <Image
             src="/img/img5.jpeg"
             alt="Zooming image"
@@ -95,18 +93,18 @@ const page = () => {
           />
         </div>
       </div>
-      <div className="pb-20">
-        <div className="flex flex-row relative">
+      <div className="pb-20 ">
+        <div className="flex flex-col md:flex-row relative">
           <div
-            className={`flex items-center w-[50%] ${
+            className={`flex items-center md:w-[50%] ${
               window.scrollY >= 1500 && window.scrollY <= 4700
                 ? "fixed"
                 : "absolute"
             } top-0 z-50`}
           >
-            <div className="flex flex-col h-screen justify-center">
+            <div className="flex flex-col h-screen md:justify-center">
               <h1 className="text-4xl">Позвольте рассказать вам историю</h1>
-              <p className="text-xl py-10 pr-46">
+              <p className="text-2xl md:text-xl py-10 md:pr-46">
                 С юных лет я осознавал, насколько уникально работает мой разум.
                 Цвета говорили громче эмоций, а мое воображение рисовало яркие
                 миры. Как дизайнер, мое ремесло выходит за рамки вещей в области
@@ -120,7 +118,7 @@ const page = () => {
             </div>
           </div>
           <div className={`flex flex-row w-full `}>
-            <div className="w-[50%]"></div>
+            <div className="md:w-[50%]"></div>
 
             <StackedScrollImages />
           </div>
@@ -129,12 +127,12 @@ const page = () => {
           <AnimatedHeading />
         </div>
         <div className="flex flex-col">
-          <div className="w-full grid grid-cols-2 my-30 h-72">
-            <div className="flex flex-col">
+          <div className="w-full grid md:grid-cols-2 my-30 h-72">
+            <div className="flex flex-col py-4 md:py-0">
               <p className="text-5xl w-full font-bold">Вдохновение</p>
             </div>
-            <div className="w-full h-full flex items-end justify-end">
-              <p className="text-xl">
+            <div className="w-full h-full flex md:items-end justify-end">
+              <p className="text-2xl md:text-xl">
                 Я нахожу вдохновение в своем раннем детстве и повседневной жизни
                 в зрелом возрасте. Я создаю на основе моих текущих эмоций, а не
                 текущей тенденции. Я создаю с прозрачностью, чтобы создавать для
