@@ -42,13 +42,13 @@ export default function ColorOnScrollText({
     return () => observer.disconnect();
   }, []);
 
-  const style = {
-    background: mouseMove
-      ? `radial-gradient(circle at ${coords.x}px ${coords.y}px, #fff, transparent)`
-      : "none",
-    WebkitBackgroundClip: "text",
-    color: "transparent",
-  };
+  // const style = {
+  //   background: mouseMove
+  //     ? `radial-gradient(circle at ${coords.x}px ${coords.y}px, #fff, transparent)`
+  //     : "none",
+  //   WebkitBackgroundClip: "text",
+  //   color: "transparent",
+  // };
 
   return (
     <div
@@ -57,9 +57,7 @@ export default function ColorOnScrollText({
         mouseMove ? "transition-colors duration-300 text-black" : ""
       }`}
     >
-      <MagnifyOnHover>
-        <span style={style}>{children}</span>
-      </MagnifyOnHover>
+      <MagnifyOnHover>{children}</MagnifyOnHover>
     </div>
   );
 }

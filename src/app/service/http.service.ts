@@ -12,6 +12,7 @@ export function createHttpWithLang() {
     baseURL: `${apiUrl}`,
   });
 }
+
 const http = createHttpWithLang();
 
 function transformData(data: any) {
@@ -21,6 +22,15 @@ function transformData(data: any) {
       }))
     : data;
 }
+
+// export function transformData<T>(data: any): T {
+//   if (data && typeof data === "object" && !("_id" in data)) {
+//     return Object.keys(data).map((key) => ({
+//       ...data[key],
+//     })) as T;
+//   }
+//   return data as T;
+// }
 
 http.interceptors.response.use(
   (res) => {
