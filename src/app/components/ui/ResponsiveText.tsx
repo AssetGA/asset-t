@@ -12,7 +12,7 @@ export default function ResponsiveText({ text }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLSpanElement>(null);
   const [lines, setLines] = useState<string[]>([]);
-  const resizeObserverRef = useRef<ResizeObserver>();
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
 
   const calculateLines = useCallback(() => {
     if (!containerRef.current || !measureRef.current) return;

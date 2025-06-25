@@ -2,26 +2,40 @@ import NewCanvasBlock from "@/app/components/ui/NewCanvasBlocks";
 import { ArrowRight } from "@deemlol/next-icons";
 import Image from "next/image";
 import React from "react";
-import { getCompanyById } from "@/lib/api";
+import { getCompanyById, getProducts } from "@/lib/api";
 import { notFound } from "next/navigation";
 
-// type aboutProps = {
-//   name: string;
-//   about: string;
-//   year: string;
-//   services: string;
-//   status: string;
-// };
-
 type PageProps = {
-  params: {
-    id: string;
-  };
+  id: string;
+  // name: string;
+  // about: string;
+  // year: string;
+  // services: string;
+  // status: string;
 };
 
-const page = ({ params }: PageProps) => {
-  const num = Number(params.id);
-  const company = getCompanyById(num);
+export function generateStaticParams() {
+  const params: { id: string }[] = [];
+
+  const products = getProducts(); // ← ждем, потому что async
+
+  if (!products || products.length === 0) {
+    console.warn("No products found");
+    return [];
+  }
+
+  const productIds = products.map((elem) => elem.id);
+
+  productIds.forEach((id) => {
+    params.push({ id });
+  });
+
+  return params;
+}
+
+const page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
+  const company = getCompanyById(Number(id));
 
   if (!company) return notFound();
 
