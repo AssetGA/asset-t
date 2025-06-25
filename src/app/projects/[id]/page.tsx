@@ -19,7 +19,7 @@ type PageProps = {
   };
 };
 
-const page = async ({ params }: PageProps) => {
+const page = ({ params }: PageProps) => {
   const num = Number(params.id);
   const company = getCompanyById(num);
 
