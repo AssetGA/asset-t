@@ -13,7 +13,13 @@ import { notFound } from "next/navigation";
 //   status: string;
 // };
 
-const page = async ({ params }: { params: { id: string } }) => {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+const page = async ({ params }: PageProps) => {
   const num = Number(params.id);
   const company = getCompanyById(num);
 
