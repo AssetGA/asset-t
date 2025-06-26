@@ -30,8 +30,6 @@ export default function StackedScrollImages() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  console.log("1111", number, lastScrollY);
-
   return (
     <div className="flex flex-col mt-[750px] md:mt-0 md:pt-0 w-full md:w-[50%] justify-end z-50">
       {images.map((src, index) => (

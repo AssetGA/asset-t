@@ -3,6 +3,7 @@ import Image from "next/image";
 import StackedScrollImages from "../components/StackedScrollImages";
 // import AnimatedHeading from "../components/AnimatedHeading";
 import History from "../components/History";
+import AnimatedHeading from "../components/AnimatedHeading";
 
 const page = () => {
   return (
@@ -79,7 +80,9 @@ const page = () => {
             <StackedScrollImages />
           </div>
         </div>
-        <div className="my-[10px]">{/* <AnimatedHeading /> */}</div>
+        <div className="my-[10px]">
+          <AnimatedHeading />
+        </div>
         <div className="flex flex-col">
           <div className="w-full grid md:grid-cols-2 my-30 h-72">
             <div className="flex flex-col py-4 md:py-0">
