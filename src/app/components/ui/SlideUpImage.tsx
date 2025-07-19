@@ -13,7 +13,7 @@ const images = [
   "/img/asset12.jpg",
   "/img/asset8.png",
   "/img/asset18.jpg",
-  "/img/asset15.jpg",
+  "/img/asset19.png",
 ];
 
 export default function SlideUpImage({ delay = 1 }: Props) {
