@@ -2,6 +2,46 @@ import BanerWindow from "../components/BanerWindow";
 import CreateSite from "../components/CreateSite";
 import HoveredComponent from "../components/HoveredComponent";
 import ServicesComponent from "../components/ServicesComponent";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Разработка приложений для бизнеса | WebDev Studio",
+  description:
+    "Разрабатываем мобильные и веб-приложения на заказ. Android, iOS, кроссплатформенные решения — быстро, качественно, с поддержкой.",
+  keywords: [
+    "разработка приложений",
+    "мобильные приложения",
+    "веб-приложения",
+    "создание приложений",
+    "iOS Android разработка",
+    "кроссплатформенные приложения",
+    "React Native",
+    "Flutter",
+  ],
+  openGraph: {
+    title: "Разработка мобильных и веб-приложений",
+    description:
+      "Создаем мощные и масштабируемые приложения под Android, iOS и Web.",
+    url: `${process.env.SITE_URL}/services`,
+    siteName: "WebDev Studio",
+    images: [
+      {
+        url: `${process.env.SITE_URL}/img/preview.png`,
+        width: 1200,
+        height: 630,
+        alt: "Разработка приложений",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Разработка мобильных и веб-приложений",
+    description:
+      "Android, iOS и Web-приложения с кастомной архитектурой и современным UI/UX.",
+    images: [`${process.env.SITE_URL}/img/preview.png`],
+  },
+};
 
 const images = [
   "/img/gravitation/ga.png",

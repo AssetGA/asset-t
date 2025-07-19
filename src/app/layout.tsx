@@ -16,8 +16,10 @@ const geistMono = Geist_Mono({
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = process.env.SITE_URL || "";
-
   return {
+    verification: {
+      google: "PX3AaYdPERNQmPRcYW_HVKsrOttzqJ4-egp3qIDyp3Y",
+    },
     title: "Разработка сайтов",
     description:
       "Разрабатываем сайты, приложения, визитки, телеграм-боты для развития вашего бизнеса",
