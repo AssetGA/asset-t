@@ -7,6 +7,7 @@ interface NextVideoProps {
   poster?: string;
   loop?: boolean;
   muted?: boolean;
+  autoPlay?: boolean;
   className?: string;
 }
 
@@ -15,6 +16,7 @@ export default function NextVideo({
   poster,
   loop = false,
   muted = true,
+  autoPlay = true,
   className = "",
 }: NextVideoProps): ReactElement {
   return (
@@ -24,6 +26,8 @@ export default function NextVideo({
         poster={poster}
         loop={loop}
         muted={muted}
+        autoPlay={autoPlay}
+        playsInline
         className="object-cover w-full h-full"
       >
         Ваш браузер не поддерживает видео.

@@ -13,7 +13,7 @@ type FloatingColumnProps = {
 const FloatingColumn = ({
   images,
   direction = "up",
-  delay = 0,
+  delay,
 }: FloatingColumnProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -26,10 +26,10 @@ const FloatingColumn = ({
       { y: direction === "up" ? "0%" : "-50%" },
       {
         y: direction === "up" ? "-50%" : "0%",
-        duration: 20,
+        duration: 100,
         repeat: -1,
         ease: "linear",
-        delay,
+        delay: delay,
       }
     );
 
@@ -51,13 +51,13 @@ const FloatingColumn = ({
     <div className="relative h-[500px] overflow-hidden w-full">
       <div ref={containerRef} className="absolute top-0 flex flex-col gap-8">
         {fullList.map((src, index) => (
-          <div key={index} className="relative w-full h-[200px]">
+          <div key={index} className="relative w-full h-[400px]">
             <Image
               src={`/img${src}`}
               alt={`img${index}`}
               width={500}
               height={700}
-              className="object-cover rounded shadow-md"
+              className="object-contain rounded shadow-md"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>

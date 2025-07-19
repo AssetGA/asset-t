@@ -33,7 +33,7 @@ const ScrollZoomImage = () => {
         style={{ width: `${width}px` }}
       >
         <Image
-          src="/img/img6.jpeg"
+          src="/img/ryba-most.JPG"
           alt="Zooming image"
           fill
           className="rounded-xl object-cover w-full"

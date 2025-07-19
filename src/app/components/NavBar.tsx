@@ -58,7 +58,7 @@ const NavBar = () => {
           }`}
         >
           <Link href={"/"}>
-            <div className="text-xl">Asset Tazhibayev</div>
+            <div className="text-xl">Asset T</div>
           </Link>
           <div>
             <AstanaTime open={open} handleOpen={handleOpen} />

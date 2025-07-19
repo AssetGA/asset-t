@@ -22,7 +22,7 @@ const page = () => {
         <div className="md:grid grid-cols-2 gap-4 hidden">
           <div className="row-span-2 flex items-center">
             <Image
-              src="/img/img5.jpeg"
+              src="/img/residence.JPG"
               alt="Zooming image"
               width={1600}
               height={600}
@@ -30,14 +30,14 @@ const page = () => {
             />
           </div>
           <Image
-            src="/img/img5.jpeg"
+            src="/img/baiterek.JPG"
             alt="Zooming image"
             width={1600}
             height={900}
             className="rounded-xl object-cover w-full h-auto"
           />
           <Image
-            src="/img/img5.jpeg"
+            src="/img/arhar.JPG"
             alt="Zooming image"
             width={1600}
             height={900}
@@ -47,7 +47,7 @@ const page = () => {
         <ScrollZoomImage />
         <div className="md:grid grid-cols-2 gap-4 hidden ">
           <Image
-            src="/img/img5.jpeg"
+            src="/img/pamytnik.JPG"
             alt="Zooming image"
             width={1600}
             height={900}
@@ -55,7 +55,7 @@ const page = () => {
           />
           <div className="row-span-2 flex items-center">
             <Image
-              src="/img/img5.jpeg"
+              src="/img/almale/4.JPEG"
               alt="Zooming image"
               width={1600}
               height={900}
@@ -63,7 +63,7 @@ const page = () => {
             />
           </div>
           <Image
-            src="/img/img5.jpeg"
+            src="/img/paint/fone-header.webp"
             alt="Zooming image"
             width={1600}
             height={900}
@@ -101,7 +101,7 @@ const page = () => {
             <div className="row-span-3 col-span-3">
               <div className="w-full h-[900px] relative">
                 <Image
-                  src={"/img/img5.jpeg"}
+                  src={"/img/asset3.jpg"}
                   fill
                   alt=""
                   className="object-cover w-full h-full rounded-xl"
@@ -111,7 +111,7 @@ const page = () => {
             <div className="col-span-2">
               <div className="w-[300px] h-[300px] relative">
                 <Image
-                  src={"/img/img5.jpeg"}
+                  src={"/img/asset7.jpg"}
                   fill
                   alt=""
                   className="object-cover w-full h-full rounded-xl"
@@ -121,7 +121,7 @@ const page = () => {
             <div className="col-span-2 row-span-2">
               <div className="w-full h-[580px] relative">
                 <Image
-                  src={"/img/img5.jpeg"}
+                  src={"/img/asset6.jpg"}
                   fill
                   alt=""
                   className="object-cover w-full h-full rounded-xl"

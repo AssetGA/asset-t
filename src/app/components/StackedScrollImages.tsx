@@ -4,10 +4,23 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const images = [
-  "/img/img1.jpeg",
-  "/img/img2.jpeg",
-  "/img/img3.jpeg",
-  "/img/img4.jpeg",
+  {
+    src: "/img/asset14.jpg",
+    description: "Формирование сознания необходимости продукта",
+  },
+  {
+    src: "/img/asset15.jpg",
+    description:
+      "Формируем общую структуру проекта и его концептуальные параметры",
+  },
+  {
+    src: "/img/asset16.avif",
+    description: "Создаем продукт",
+  },
+  {
+    src: "/img/asset17.png",
+    description: "Выводим в рынок и меняем сознание общества",
+  },
 ];
 
 export default function StackedScrollImages() {
@@ -35,12 +48,15 @@ export default function StackedScrollImages() {
       {images.map((src, index) => (
         <div
           key={index}
-          className={`h-screen right-0 top-0 z-[${10 + index}] ${
+          className={`relative h-screen right-0 top-0 z-[${10 + index}] ${
             index === number ? "sticky" : "-mt-screen relative"
           } `}
         >
+          <h3 className="absolute top-25 left-3 z-300 text-3xl text-white">
+            {src.description}
+          </h3>
           <Image
-            src={src}
+            src={src.src}
             alt={`Фото ${index + 1}`}
             fill
             className="object-cover transition-all duration-1000"

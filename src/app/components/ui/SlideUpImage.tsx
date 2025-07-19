@@ -10,10 +10,10 @@ type Props = {
 };
 
 const images = [
-  "/img/img2.jpeg",
-  "/img/img1.jpeg",
-  "/img/img4.jpeg",
-  "/img/img3.jpeg",
+  "/img/asset12.jpg",
+  "/img/asset8.png",
+  "/img/asset18.jpg",
+  "/img/asset15.jpg",
 ];
 
 export default function SlideUpImage({ delay = 1 }: Props) {

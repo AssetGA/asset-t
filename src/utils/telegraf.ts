@@ -18,7 +18,7 @@ export const sendMessage = async (message: string) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      chat_id: process.env.NEXT_PUBLIC_CHAT_ID,
+      chat_id: process.env.CHAT_ID,
       text: message,
     }),
   });

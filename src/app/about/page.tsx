@@ -24,8 +24,7 @@ const page = () => {
           <h2 className="text-2xl py-4">Быть прозрачным</h2>
           <NextVideo
             src={"/videos/1.mp4"}
-            // poster="/img/img3.jpeg"
-            // preload={preload}
+            poster="/img/img3.jpeg"
             className="w-[400px] h-[300px] rounded-md"
           />
         </div>
@@ -109,7 +108,7 @@ const page = () => {
         <div className="row-span-3 col-span-3">
           <div className="w-full h-[900px] relative">
             <Image
-              src={"/img/img5.jpeg"}
+              src={"/img/asset2.jpg"}
               fill
               alt=""
               className="object-cover w-full h-full rounded-xl"
@@ -119,7 +118,7 @@ const page = () => {
         <div className="col-span-2">
           <div className="w-[300px] h-[300px] relative">
             <Image
-              src={"/img/img5.jpeg"}
+              src={"/img/asset7.jpg"}
               fill
               alt=""
               className="object-cover w-full h-full rounded-xl"
@@ -129,7 +128,7 @@ const page = () => {
         <div className="col-span-2 row-span-2">
           <div className="w-full h-[580px] relative">
             <Image
-              src={"/img/img5.jpeg"}
+              src={"/img/asset12.jpg"}
               fill
               alt=""
               className="object-cover w-full h-full rounded-xl"
