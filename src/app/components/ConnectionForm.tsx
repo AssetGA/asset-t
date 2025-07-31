@@ -25,6 +25,8 @@ const ConnectionForm = () => {
     time: "",
   });
 
+  const [successMessage, setSuccessMessage] = useState("");
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -40,6 +42,17 @@ const ConnectionForm = () => {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+      budget: "",
+      time: "",
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,6 +80,11 @@ const ConnectionForm = () => {
           }`,
         }),
       });
+      if (res.ok) {
+        resetForm();
+        setSuccessMessage("✅ Сообщение успешно отправлено!");
+        setTimeout(() => setSuccessMessage(""), 7000); // убираем сообщение через 5 секунд
+      }
 
       console.log("responce", res.ok);
       return res.ok;
@@ -79,94 +97,105 @@ const ConnectionForm = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="">
-      <div className="md:grid md:grid-cols-2 gap-8 text-xl">
-        <div className="col-span-2">
-          <label>Имя</label>
-          <input
-            type="name"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="block w-full p-4 rounded-md focus:outline-none border-2"
-            placeholder="Абай"
-          />
+    <>
+      {successMessage ? (
+        <div className="col-span-2 text-green-600 text-center text-sm mt-2 transition-opacity duration-300">
+          {successMessage}
         </div>
-        <div className="">
-          <label>Почта</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="block w-full p-4 rounded-md border-2"
-            placeholder="405060@gmail.ru"
-          />
-        </div>
-        <div className="">
-          <label>Мобильный</label>
-          <input
-            type="phone"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="block w-full p-4 rounded-md border-2"
-            placeholder="7781234567"
-          />
-        </div>
-        <SelectField
-          label="Бюджет"
-          value={formData.budget}
-          onChange={handleChange2}
-          defaultOption="Выбери..."
-          options={options}
-          error=""
-          name="budget"
-        />
-        <div className="">
-          <label>Сроки</label>
-          <input
-            id="time"
-            name="time"
-            value={formData.time}
-            onChange={handleChange}
-            required
-            className="block w-full p-4 rounded-md border-2"
-            placeholder="Месяцев"
-          />
-        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="">
+          <div className="md:grid md:grid-cols-2 gap-8 text-xl">
+            <div className="col-span-2">
+              <label>Имя</label>
+              <input
+                type="name"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="block w-full p-4 rounded-md focus:outline-none border-2"
+                placeholder="Абай"
+              />
+            </div>
+            <div className="">
+              <label>Почта</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="block w-full p-4 rounded-md border-2"
+                placeholder="405060@gmail.ru"
+              />
+            </div>
+            <div className="">
+              <label>Мобильный</label>
+              <input
+                type="phone"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="block w-full p-4 rounded-md border-2"
+                placeholder="7781234567"
+              />
+            </div>
+            <SelectField
+              label="Бюджет"
+              value={formData.budget}
+              onChange={handleChange2}
+              defaultOption="Выбери..."
+              options={options}
+              error=""
+              name="budget"
+            />
+            <div className="">
+              <label>Сроки</label>
+              <input
+                id="time"
+                name="time"
+                value={formData.time}
+                onChange={handleChange}
+                required
+                className="block w-full p-4 rounded-md border-2"
+                placeholder="Месяцев"
+              />
+            </div>
 
-        <div className="col-span-2">
-          <label htmlFor="message" className="block font-medium text-gray-700">
-            Сообщение
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={6}
-            className="block w-full p-4 rounded-md border-2"
-          />
-        </div>
+            <div className="col-span-2">
+              <label
+                htmlFor="message"
+                className="block font-medium text-gray-700"
+              >
+                Сообщение
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={6}
+                className="block w-full p-4 rounded-md border-2"
+              />
+            </div>
 
-        <div className="flex text-center">
-          <button
-            type="submit"
-            className="p-4 border-2 border-transparent font-medium shadow-sm bg-black/80 text-white rounded-md cursor-pointer hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-offset-2"
-          >
-            Отправить
-          </button>
-        </div>
-      </div>
-    </form>
+            <div className="flex text-center">
+              <button
+                type="submit"
+                className="p-4 border-2 border-transparent font-medium shadow-sm bg-black/80 text-white rounded-md cursor-pointer hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              >
+                Отправить
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
+    </>
   );
 };
 
